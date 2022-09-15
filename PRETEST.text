@@ -1,0 +1,49 @@
+Pre Test
+1. What do you know about Microservices?
+2. Why microservice?
+3. What are the advantages and disadvantages of Microservices?
+4. Explain the difference between Glints & Jobstreet from your point of view as a Programmer
+(Front-end & Backend) ?
+
+1.
+- microservice merupakan aplikasi-aplikasi kecil yang saling bekerja sama,
+- Fokus mengerjakan satu pekerjaan dengan baik,
+- Independent, tiap service bisa berjalan sendiri
+- Dapat di deploy dan diubah tanpa ketergantungan dengan aplikasi lain
+- Setiap Komponen pada sistem dibuat dalam service
+- Komunikasi antar service(fitur) biasa melalui network-call(HTTP)
+
+2.
+karena lebih mudah didevelop, serta gaya arsitektur yang
+satu ini memungkinkan tim mereka untuk bekerja secara
+independen dan menyajikan hasil ke production sesuai tim masing-masing.
+Sehingga, mendukung perusahaan untuk mengelola tim dengan baik dan mempercepat proses pengembangan aplikasi
+
+3.
+Kelebihan :
+- Karena mudah dimengerti, karena relative kecil ukuran servicenya.
+- Serta lebih mudah di develop, di maintain, di test dan di deploy.
+- Lebih mudah dalam bergonda-ganti teknologi.
+- Mudah di scale sesuai kebutuhan
+- Bisa dikerjakan dalam tim-tim kecil
+
+Kekurangan :
+- Sistemnya terdistribusi dan semua saling terintegrasi
+- Komunikasi antar service rawan error
+- Testing interaksi antar service lebih sulit
+
+4.
+Jobstreet
+- Memiliki score performa lighthouse 56 itu dibawah rata" standart website pada umunya
+- dibangun dengan menggunakan bahasa php(laravel)
+- bersifat SSR (Server side rendering)
+- optomalisasi search kurang baik
+- ketika nabvar di klik ada beberapa berpindah domain sehingga membingungkan
+
+Glints
+- Memiliki score performa lighthouse 18 itu dibawah sangat buruk. akan tetapi tergantung koneksi interner user karena website ini bersifar CSR
+- bersifat CSR (Client side rendering)
+- layout websitenya konsisten sehingga mudah digunakan
+- dibangun dengan menggunakan bahasa javasript/typescript(ReactJs) dengan framework NextJs
+
+
