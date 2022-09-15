@@ -9,6 +9,8 @@ use Laravel\Fortify\Rules\Password;
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class UserController extends Controller
@@ -54,6 +56,49 @@ class UserController extends Controller
                 'error' =>$error,
             ],'Authentication Failed', 500);
 
+        }
+    }
+
+    public function login(Request $request)
+    {
+        try {
+            // membuat validasi ketika login
+            $request->validate([
+                'email' => 'email|required',
+                'password' => 'required'
+            ]);
+
+            $credentials = request(['email', 'password']);
+            // cek apakah email dan password benar atau tidak
+            if (!Auth::attempt($credentials)) {
+                // jika gagal maka kembalikan response error
+                return ResponseFormatter::error([
+                    'message' => 'Unauthorized'
+                ],'Authentication Failed', 500);
+            }
+
+            // jika berhasil maka lanjut ke blok ini dan ambil data yang paling pertama
+            $user = User::where('email', $request->email)->first();
+            // cek password apakah sudah sesuai atau belum
+            if ( ! Hash::check($request->password, $user->password, [])) {
+                throw new \Exception('Invalid Credentials');
+            }
+
+            // jika berhasil maka akan mendapatkan token
+            $tokenResult = $user->createToken('authToken')->plainTextToken;
+            // jika sudah kembalikan response success
+            return ResponseFormatter::success([
+                'access_token' => $tokenResult,
+                'token_type' => 'Bearer',
+                'user' => $user
+            ],'Authenticated');
+
+            // jika gagal maka akan kembalikan exception
+        } catch (Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'Something went wrong',
+                'error' => $error,
+            ],'Authentication Failed', 500);
         }
     }
 }
