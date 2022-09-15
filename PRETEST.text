@@ -46,4 +46,12 @@ Glints
 - layout websitenya konsisten sehingga mudah digunakan
 - dibangun dengan menggunakan bahasa javasript/typescript(ReactJs) dengan framework NextJs
 
+5. Kenapa Laravel ?
+ada beberapa faktor yang meyakinkan saya memilih laravel:
+- Membuat aplikasi lebih aman karena komponen yang sudah terbukti aman.
+  Komponen yang disertakan dalam library PHP framework terus diuji, dikembangkan, dan divalidasi oleh banyak pengembang yang menggunakan perangkat tersebut.
+- Mudah dalam melakukkan pengembangan dan pemeliharaan
+  karena pola penulisan dan penyusunan kode yang tertata rapi akan memudahkan dalam melakukan pemeliharaan dan pengembangan aplikasi.
+- Karena dengan konsep MVC memudahkan kerja sama antar tim
+
 
