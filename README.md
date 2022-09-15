@@ -17,6 +17,12 @@
 - Buat database sesuai dengan nama DB_DATABASE= di file .env
 - Ketik php artisan migrate --seed pada terminal
 - Jalankan program
+
+## Login
+- Email: admin@gmail.com
+- Password: password
+- Ex: http://serviceuser.dev.com/ (Localhost)
+- Data dummy dapat di lihat di folder : database/seeders/DatabaseSeeder.php
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
