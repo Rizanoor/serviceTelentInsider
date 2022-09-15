@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
                 'email_verified_at' => date('Y-m-d H:i:s', time()),
                 'password' => bcrypt('password'),
                 'about'=> "Ini adalah Admin",
-                'isActive' => true,
                 'role' => "ADMIN",
             ]
         );
