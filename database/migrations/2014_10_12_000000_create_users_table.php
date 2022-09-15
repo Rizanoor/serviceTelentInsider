@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->boolean('isActive');
             $table->enum('role', ['USER', 'ADMIN'])->default('USER');
             $table->longText('about');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
