@@ -27,6 +27,6 @@ class Company extends Model
     // Relasi
     public function jobs()
     {
-        return $this->hasMany(Jobs::class, 'company_id', 'id');
+        return $this->hasMany(Jobs::class, 'companies_id', 'id');
     }
 }

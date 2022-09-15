@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\JobController;
+use App\Http\Controllers\API\CompanyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,4 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::get('jobs', [jobController::class, 'all']);
+Route::get('company', [CompanyController::class, 'all']);
