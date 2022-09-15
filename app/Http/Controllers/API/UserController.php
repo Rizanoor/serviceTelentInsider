@@ -101,4 +101,35 @@ class UserController extends Controller
             ],'Authentication Failed', 500);
         }
     }
+
+    // Ambil data user
+    public function fetch(Request $request)
+    {
+        // kembalikan respponse successs
+        return ResponseFormatter::success($request->user(),'Data profile user berhasil diambil');
+    }
+
+    // Update profile user
+    public function updateProfile(Request $request)
+    {
+        // simpan data user
+        $data = $request->all();
+
+        // ambil data user yang sedang login
+        $user = Auth::user();
+        // data user diupdate
+        $user->update($data);
+
+        // jalankan response dan kembalikan sukses bersama dengan pesannya
+        return ResponseFormatter::success($user,'Profile Updated');
+    }
+
+    public function logout(Request $request)
+    {
+        // abil tokern user yang sedang login dan hapus
+        $token = $request->user()->currentAccessToken()->delete();
+
+        // kembalikan respons
+        return ResponseFormatter::success($token,'Token Revoked');
+    }
 }
