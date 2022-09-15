@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Company;
 use App\Models\User;
+use App\Models\Jobs;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,5 +28,28 @@ class DatabaseSeeder extends Seeder
                 'role' => "ADMIN",
             ]
         );
+
+        Jobs::create(
+            [
+                'jobs_title' => 'Fullstack',
+                'company_id' => '1',
+                'location' => 1,
+                'workspace_type' => "WFH",
+                'min_salary' => 5000000,
+                'max_salary'=> 10000000,
+            ]
+        );
+
+        Jobs::create(
+            [
+                'jobs_title' => 'Frontend Dev',
+                'company_id' => '2',
+                'location' => 2,
+                'workspace_type' => "WFH",
+                'min_salary' => 5000000,
+                'max_salary'=> 10000000,
+            ]
+        );
+
     }
 }
