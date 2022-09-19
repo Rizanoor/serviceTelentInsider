@@ -34,6 +34,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('company', [CompanyController::class, 'store']);
     Route::post('/company/{id}', [CompanyController::class, 'update']);
 
+    // Jobs
+    Route::post('job', [JobController::class, 'store']);
+    Route::post('/job/{id}', [JobController::class, 'update']);
 });
 
 Route::get('jobs', [jobController::class, 'all']);

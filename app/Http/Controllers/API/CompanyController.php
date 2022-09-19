@@ -65,11 +65,11 @@ class CompanyController extends Controller
         ]);
 
         // jika validasi logo memenuhi maka name foto akan tergenerate
-        // dan masuk ke folder Storage/app/public/imageLogo
+        // dan masuk ke folder Storage/app/public/logo
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
             $filename = time() . '.' . $logo->getClientOriginalExtension();
-            Storage::putFileAs('public/assets/imageLogo', $logo, $filename);
+            Storage::putFileAs('public/assets/logo', $logo, $filename);
 
             $data['logo'] = $filename;
         }

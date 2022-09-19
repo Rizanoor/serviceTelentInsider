@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Helpers\ResponseFormatter;
-use App\Http\Controllers\Controller;
 use App\Models\Jobs;
-use Illuminate\Contracts\Queue\Job;
 use Illuminate\Http\Request;
+use App\Http\Requests\JobRequest;
+use App\Helpers\ResponseFormatter;
+use Illuminate\Contracts\Queue\Job;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class JobController extends Controller
 {
@@ -51,5 +53,26 @@ class JobController extends Controller
             $job->paginate($limit),
             'Data job berhasil diambil'
         );
+    }
+
+
+    public function store(JobRequest $request)
+    {
+        $data = $request->all();
+
+        Jobs::create($data);
+
+        return ResponseFormatter::success($data, 'Job company berhasil dibuat');
+    }
+
+    public function update(JobRequest $request, $id)
+    {
+        $data = $request->all();
+
+        $item = Jobs::find($id);
+
+        $item->update($data);
+
+        return ResponseFormatter::success($data, 'Job company berhasil diupdate');
     }
 }

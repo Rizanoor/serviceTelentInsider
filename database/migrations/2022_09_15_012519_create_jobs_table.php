@@ -17,7 +17,7 @@ class CreateJobsTable extends Migration
             $table->id();
             $table->string('jobs_title');
             $table->foreignId('company_id');
-            $table->integer('location');
+            $table->string('location');
             $table->string('workspace_type');
             $table->string('min_salary');
             $table->string('max_salary');

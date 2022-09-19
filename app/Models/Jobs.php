@@ -15,6 +15,7 @@ class Jobs extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'company_id',
         'jobs_title',
         'companies_id',
         'location',
