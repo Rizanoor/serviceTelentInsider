@@ -26,7 +26,7 @@ class ResumeController extends Controller
 
      }
 
-     public function fetch(Request $id)
+     public function fetch()
      {
         // cari resume
          $resume = Resume::all();
