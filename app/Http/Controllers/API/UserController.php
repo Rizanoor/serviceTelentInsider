@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -117,6 +118,22 @@ class UserController extends Controller
 
         // ambil data user yang sedang login
         $user = Auth::user();
+
+                // validasi upload photo
+                $photo = $request->validate([
+                    'photo' => 'image|mimes:jpeg,png,jpg|file|max:1024',
+                ]);
+
+                // jika validasi photo memenuhi maka name foto akan tergenerate
+                // dan masuk ke folder Storage/app/public/image
+                if ($request->hasFile('photo')) {
+                    $photo = $request->file('photo');
+                    $filename = time() . '.' . $photo->getClientOriginalExtension();
+                    Storage::putFileAs('public/image', $photo, $filename);
+
+                    $data['photo'] = $filename;
+                }
+
         // data user diupdate
         $user->update($data);
 
