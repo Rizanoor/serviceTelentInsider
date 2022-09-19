@@ -26,7 +26,6 @@ class ResumeRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'attachment' => 'required|mimes:pdf|max:10000',
-            // 'user_id' => 'required|exists:users,id',
         ];
     }
 }

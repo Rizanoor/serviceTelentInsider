@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ResumeRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class ResumeController extends Controller
 {
@@ -20,11 +18,20 @@ class ResumeController extends Controller
         // simpan file pada kolom attachment di folder assets/resume
         $data['attachment'] = $request->file('attachment')->store('assets/resume', 'public');
 
+        // resume berhasil dibuat
         Resume::create($data);
 
-        return ResponseFormatter::success($data,'Resume has been uploaded');
+        // kembalikan response
+        return ResponseFormatter::success($data,'Resume berhasil diupload');
 
      }
 
+     public function fetch(Request $id)
+     {
+        // cari resume
+         $resume = Resume::all();
 
+         // kembalikan respponse successs
+         return ResponseFormatter::success($resume,'Data list resume berhasil diambil');
+     }
 }
