@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResumeTable extends Migration
+class CreateResumesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateResumeTable extends Migration
      */
     public function up()
     {
-        Schema::create('resume', function (Blueprint $table) {
+        Schema::create('resumes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('attachment');
             $table->foreignId('user_id');
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreateResumeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resume');
+        Schema::dropIfExists('resumes');
     }
 }

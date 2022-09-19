@@ -129,10 +129,11 @@ class UserController extends Controller
                 if ($request->hasFile('photo')) {
                     $photo = $request->file('photo');
                     $filename = time() . '.' . $photo->getClientOriginalExtension();
-                    Storage::putFileAs('public/image', $photo, $filename);
+                    Storage::putFileAs('public/assets/image', $photo, $filename);
 
                     $data['photo'] = $filename;
                 }
+
 
         // data user diupdate
         $user->update($data);
