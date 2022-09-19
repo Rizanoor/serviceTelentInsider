@@ -23,11 +23,17 @@ Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
+    // User
     Route::get('user', [UserController::class, 'fetch']);
     Route::post('user', [UserController::class, 'updateProfile']);
-    Route::post('logout', [UserController::class, 'logout']);
     Route::post('resume', [ResumeController::class, 'uploadResume']);
     Route::get('resume', [ResumeController::class, 'fetch']);
+    Route::post('logout', [UserController::class, 'logout']);
+
+    // Company
+    Route::post('company', [CompanyController::class, 'store']);
+    Route::post('/company/{id}', [CompanyController::class, 'update']);
+
 });
 
 Route::get('jobs', [jobController::class, 'all']);
