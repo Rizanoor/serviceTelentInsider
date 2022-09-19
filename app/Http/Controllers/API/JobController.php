@@ -58,21 +58,28 @@ class JobController extends Controller
 
     public function store(JobRequest $request)
     {
+        // Panggil semua data
         $data = $request->all();
 
+        // Data pada model Jobs berhasil dibuat
         Jobs::create($data);
 
+        // Kembalikan response success
         return ResponseFormatter::success($data, 'Job company berhasil dibuat');
     }
 
     public function update(JobRequest $request, $id)
     {
+        // Panggil semua data
         $data = $request->all();
 
+        // Cari item data berdasarkan id
         $item = Jobs::find($id);
 
+        // item data berhsail di update
         $item->update($data);
 
+        // Kembalikan response success
         return ResponseFormatter::success($data, 'Job company berhasil diupdate');
     }
 }
