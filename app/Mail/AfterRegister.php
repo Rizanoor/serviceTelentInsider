@@ -32,6 +32,5 @@ class AfterRegister extends Mailable
         return $this->subject('Registration on Talent Insider')->markdown('emails.afterRegister', [
             'user' => $this->user
         ]);
-        // return $this->markdown('emails.afterRegister');
     }
 }
